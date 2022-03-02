@@ -2,25 +2,22 @@
 version: 2.1 
 
 orbs:
-  node: circleci/node@3
+  node: circleci/node@5.0.0
 
-jobs:
-  build:
-    # working_directory: ~/backend_api
-    executor: node/default
+
+# jobs:
+#   build:
+#     # working_directory: ~/backend_api
+#     executor: node/default
     
-    steps:
-      - checkout
-      - node/install-npm
-      - run:
-          name: Test
-          command: npm test
-# orbs:
-#   node: circleci/node@4.7
- 
+#     steps:
+#       - checkout
+#       # - node/install-npm
+#       - run: npm test
+#       - run: npm test 
+
 workflows:
-  sample: 
-    jobs:
-      - node/test:
-          version: '16.14.1' 
-          pkg-manager: npm
+    example-workflow:
+      jobs:
+        - node/test
+
