@@ -6,10 +6,10 @@ orbs:
 
 jobs:
   build:
-    # working_directory: ~/backend_api
+    working_directory: ~/backend_api
     executor: node/default
-    docker:
-      - image: circleci/node:5.0.0
+    # docker:
+    #   - image: circleci/node:5.0.0
     steps:
       - checkout
       - node/install-npm
@@ -18,7 +18,9 @@ jobs:
           command: npm test
 
 workflows:
-    example-workflow:
-      jobs:
-        - build
+  test_flow:
+    jobs:
+      - node/test:
+          version: '14.16.1'
+          pkg-manager: npm
 
