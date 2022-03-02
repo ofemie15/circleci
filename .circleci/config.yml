@@ -8,8 +8,8 @@ jobs:
   build:
     working_directory: ~/backend_api
     executor: node/default
-    # docker:
-    #   - image: circleci/node:5.0.0
+    docker:
+      - image: google/cloud-sdk
     steps:
       - checkout
       - node/install-npm
