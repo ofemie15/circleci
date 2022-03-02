@@ -7,12 +7,15 @@ orbs:
 jobs:
   build:
     # working_directory: ~/backend_api
+    executor: node/default
     docker:
       - image: circleci/node:5.0.0
     steps:
       - checkout
       - node/install-npm
-      - node/test
+      - run:
+          name: Test
+          command: npm test
 
 workflows:
     example-workflow:
