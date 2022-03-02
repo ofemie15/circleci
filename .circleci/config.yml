@@ -1,6 +1,20 @@
 # This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1 
 
+orbs:
+  node: circleci/node@3
+
+jobs:
+  build:
+    # working_directory: ~/backend_api
+    executor: node/default
+    
+    steps:
+      - checkout
+      - node/install-npm
+      - run:
+          name: Test
+          command: npm test
 # orbs:
 #   node: circleci/node@4.7
  
@@ -8,5 +22,5 @@ workflows:
   sample: 
     jobs:
       - node/test:
-          version: '16.10' 
+          version: '16.14.1' 
           pkg-manager: npm
